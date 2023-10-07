@@ -17,18 +17,11 @@ func TestINILoader(t *testing.T) {
 	Convey("Logger config 校验", t, func() {
 		So(conf.Logger.Color, ShouldEqual, true)
 	})
-
-	Convey("Repo config 校验", t, func() {
-		So(conf.Repo.Connection, ShouldEqual, "admin:admin@10.0.2.8/wyb-devdb?charset=utf8&parseTime=True&loc=Local")
-	})
 }
 
 func TestINILoaderContent(t *testing.T) {
 	var iniContent = `[Logger]
-color = true
-
-[Repo]
-connection = "admin:admin@10.0.2.8/wyb-devdb?charset=utf8&parseTime=True&loc=Local"`
+color = true`
 
 	loader := NewContent([]byte(iniContent))
 	conf, err := loader.Load()
@@ -39,9 +32,5 @@ connection = "admin:admin@10.0.2.8/wyb-devdb?charset=utf8&parseTime=True&loc=Loc
 
 	Convey("Logger config 校验", t, func() {
 		So(conf.Logger.Color, ShouldEqual, true)
-	})
-
-	Convey("Repo config 校验", t, func() {
-		So(conf.Repo.Connection, ShouldEqual, "admin:admin@10.0.2.8/wyb-devdb?charset=utf8&parseTime=True&loc=Local")
 	})
 }

@@ -9,7 +9,7 @@ func TestJSONLoader(t *testing.T) {
 		t.Errorf("Load error: %s\n", err)
 		return
 	}
-	if conf.Server.Listen != ":8080" {
+	if !conf.Logger.Color {
 		t.Errorf("Config data error\n")
 		return
 	}
