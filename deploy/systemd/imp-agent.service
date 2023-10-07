@@ -1,0 +1,12 @@
+[Unit]
+Description=imp-agent
+After=network.target
+[Service]
+Type=simple
+Environment=INOHOME=/usr/local/imp/
+ExecStart=/usr/local/imp/bin/imp-agent
+ExecStop=
+Restart=always
+KillMode=process
+[Install]
+WantedBy=multi-user.target
